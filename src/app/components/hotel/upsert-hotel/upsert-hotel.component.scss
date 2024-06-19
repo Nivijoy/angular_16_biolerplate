@@ -1,0 +1,59 @@
+@import "src/app/styles/index.scss";
+
+// .mat-divider {
+//   border-top-width: 2px;
+//   border-top-color: #b48e06;
+// }
+
+.mat-card {
+  width: 100%;
+  max-width: 1100px; /* Adjust as needed */
+  margin: 0 auto;
+  border-radius: 25px;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                border: 2px solid whitesmoke; 
+  box-shadow: inset 4px 1px 20px 2px #bb0572;
+}
+
+
+// .subtitle {
+//   position: relative;
+//   text-align: center;
+//   margin: 20px 0;
+// }
+
+// .subtitle::before,
+// .subtitle::after {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   width:40%;
+//   height: 2px;
+//   background-color: currentColor; /* Uses the current text color */
+// }
+
+// .subtitle::before {
+//   left: 0;
+// }
+
+// .subtitle::after {
+//   right: 0;
+// }
+
+
+.subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.subtitle {
+  padding: 0 10px; /* Adjust this padding to add space around the subtitle */
+}
+
+.line {
+  flex: 1;
+  height: 2px; /* Thickness of the line */
+  background-color: #bb0572; /* Uses the current text color */
+}
+

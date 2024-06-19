@@ -1,0 +1,29 @@
+.file-drop {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c1c1c1;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+.mat-toolbar-single-row {
+  height: auto !important;
+  background: transparent;
+}
+
+.mat-toolbar-single-row button {
+  width: 200px;
+}
+
+mat-card {
+  width: fit-content;
+}
+mat-card-title{
+  color: #002b5c;
+  font-size:inherit;
+}
+mat-label{
+  font-size:initial;
+}

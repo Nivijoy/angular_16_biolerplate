@@ -1,0 +1,280 @@
+$primary-color: black;
+// $bg-primary-color: #002b5c;
+// $bg-primary-color: #e61e43; //red
+// $bg-primary-color:#bb0572; //peach
+// $bg-primary-color:#a6cd45; //green
+$bg-primary-color:#2e0249;
+
+::ng-deep .mat-form-field-infix {
+  width: unset !important;
+}
+
+::ng-deep .mat-card {
+  margin-bottom: 25px;
+  // transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mat-card:hover {
+  transform: translateY(-10px); /* Elevate the card upwards */
+  // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow for more elevation effect */
+}
+
+::ng-deep .mat-card-actions {
+  margin-left: unset !important;
+  margin-right: unset !important;
+  padding: unset !important;
+}
+
+::ng-deep .mat-card-title {
+  line-height: 30px;
+}
+
+.center {
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  text-align: -webkit-center;
+}
+
+.middle {
+  align-items: center;
+  vertical-align: middle;
+}
+
+.end {
+  text-align: end;
+  // align-self: end;
+  justify-content: end;
+  mat-checkbox,
+  button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  mat-checkbox:last-child,
+  button:last-child {
+    margin-right: unset !important;
+  }
+}
+
+.btn-end {
+  margin-right: 5px;
+}
+
+.btn {
+  border-radius: 32px;
+}
+
+.mat-card-title {
+  color: $primary-color;
+  font-weight: 700;
+  padding-bottom: 1em;
+
+  .mat-card-title-action,
+  .mat-card-title-action-icon {
+    display: flex;
+  }
+}
+
+.mat-cell-color-href {
+  color: $primary-color;
+  font-weight: 600;
+  text-decoration-line: underline;
+}
+
+.icon-display {
+  transform: inherit;
+  color: $primary-color;
+}
+
+.radio-label-gap {
+  padding-right: 15px;
+}
+
+.mat-card-title {
+  color: $primary-color;
+  font-weight: 600;
+}
+
+.mat-header-cell {
+  color: $primary-color;
+  font-size: medium;
+  font-weight: 800;
+}
+
+mat-cell > span.truncate-text {
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
+  word-wrap: break-word;
+}
+
+// @media only screen and (max-width: 768px) {
+//     mat-header-row,
+//     mat-row {
+//         width: 200%; //you can also set it in px,em, etc...
+//     }
+// }
+
+mat-card-subtitle,
+mat-panel-title {
+  color: $primary-color;
+  font-size: 20px;
+}
+
+::ng-deep .expansion-align {
+  .mat-content {
+    overflow: unset;
+  }
+  .mat-expansion-panel-header {
+    padding-left: 40px;
+    padding-right: unset;
+  }
+  .mat-expansion-panel-header-description {
+    text-align: end;
+    align-content: flex-end;
+    justify-content: end;
+  }
+}
+
+.tab-body {
+  margin: 5px 13px;
+}
+/* 
+::ng-deep .mat-tab-label {
+  font-size: medium;
+  color: $primary-color;
+  font-weight: 800;
+  min-width: 25px !important; // In addition to mat-strech-tabs allowing tabs to fill remaining space in parent container
+  padding: 5px;
+}
+ */
+
+.mat-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.full-width-table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.header > h2 {
+  margin: 0;
+}
+
+.dialog-close {
+  margin-top: -40px;
+}
+
+.radio-container {
+  margin-bottom: 10px;
+  mat-radio-group {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+::ng-deep .mat-menu-panel.mat-menu-table {
+  max-width: unset;
+  padding: 10px;
+}
+
+:host ::ng-deep .mat-tab-body-content {
+  height: unset;
+  overflow: unset;
+}
+
+$adjust-gap: 1.5rem;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc($adjust-gap * 0.16);
+  margin-right: calc($adjust-gap * 0.16);
+  // margin-left: calc($adjust-gap * -0.5);
+  // margin-right: calc($adjust-gap * -0.5);
+  margin-bottom: 10px;
+}
+
+::ng-deep .mat-expansion-indicator {
+  // padding-left: 15px;
+  padding-right: 10px;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+  border-color: black;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: $bg-primary-color;
+}
+
+.primary-color {
+  color: $bg-primary-color;
+}
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  height: unset;
+}
+
+.example-tooltip-red {
+  background: #b71c1c;
+}
+
+.amount-label {
+  font-size: x-large;
+  font-family: sans-serif;
+  color: #8414ec;
+  font-weight: 600;
+}
+
+.count-display {
+  font-weight: bold;
+  color: #2f3f95;
+  font-size: large;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: $bg-primary-color;
+}
+
+.mat-divider {
+  border-top-width: 2px;
+  border-top-color: $bg-primary-color;
+}
+
+// ::-webkit-input-placeholder{
+//     color: $bg-primary-color;
+// }
+
+// .mat-form-field-input::placeholder {
+//     color: $bg-primary-color;
+// }
+
+
+// ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+//     color: $bg-primary-color!important;
+// }
+
+// ::ng-deep .mat-step-header .mat-step-icon-selected {
+//   background-color: $bg-primary-color!important;; 
+
+// }

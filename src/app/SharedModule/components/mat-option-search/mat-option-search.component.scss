@@ -1,0 +1,14 @@
+.option {
+  color: unset;
+  .search-container {
+    display: flex;
+    gap: 10px;
+    .option-input {
+      width: 100%;
+    }
+  }
+}
+
+:host ::ng-deep .mat-pseudo-checkbox-disabled {
+    display: none;
+}

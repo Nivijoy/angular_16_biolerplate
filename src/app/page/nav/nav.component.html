@@ -1,0 +1,196 @@
+<!-- <mat-toolbar class="mat-elevation-z10">
+  <div class="menu-titles">
+   
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon *ngIf="!sidenavOpened">menu</mat-icon>
+      <mat-icon *ngIf="sidenavOpened">close</mat-icon>
+    </button>
+    HOTEL
+  </div>
+  <div class="menu-options">
+    <button (click)="logout()" mat-button class="menu-button">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+
+
+
+ <mat-sidenav-container>
+  <mat-sidenav
+    #sidenav="matSidenav"
+    [opened]="!isMobile? true :sidenavOpened"
+    class="mat-elevation-z10"
+    [class.opened]="!isMobile ? sidenavOpened : ''"
+    [class.closed]="!isMobile ? !sidenavOpened : ''"
+  >
+    <mat-nav-list class="side-navnar">
+      <ng-container *ngFor="let menu of menus; index as i">
+        <ng-container
+          [ngTemplateOutlet]="menu.data?.children ? childMenu : parentMenu"
+          [ngTemplateOutletContext]="{ menu: menu }"
+        ></ng-container>
+      </ng-container>
+    </mat-nav-list>
+    <ng-template #parentMenu let-menu="menu">
+      <button
+        mat-button
+        class="menu-button"
+        [ngStyle]="{ 'margin-left': !sidenavOpened ? '4px' : '' }"
+        [disabled]="
+          current_path.includes('/page/' + menu.path + '/') ||
+          current_path === '/page/' + menu.path
+        "
+       
+        [routerLink]="[menu.path]"
+      >
+        <mat-icon>{{ menu.data?.icon }} </mat-icon
+        ><span [ngClass]="{ 'hide-title': !sidenavOpened }"
+          >{{ menu.data?.title }}
+        </span>
+      </button>
+    </ng-template>
+    <ng-template #childMenu let-menu="menu">
+      <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+        [class.mat-elevation-z0]="true"
+        [expanded]="current_path.includes(menu.path)"
+        hideToggle="true"
+      >
+
+      
+      <mat-expansion-panel-header class="specific-class">
+        <button mat-button class="menu-button menu-toggle"  [ngClass]="{ 'panel-open': panelOpenState }">
+            <mat-icon>{{ menu.data?.icon }}</mat-icon>
+            <span [ngClass]="{ 'hide-title': !sidenavOpened }">{{ menu.data?.title }}</span>
+        </button>
+    </mat-expansion-panel-header>
+        
+
+       
+       
+        <button
+          *ngFor="let submenu of menu.data.children"
+          mat-button
+          [disabled]="current_path === submenu.link"
+          class="menu-button"
+          (click)="getPath(submenu)"
+          [routerLink]="[submenu.link]"
+        >
+          <mat-icon>{{ submenu.icon }}</mat-icon>
+          <span [ngClass]="{ 'hide-title': !sidenavOpened }">
+            {{ submenu.title }}
+          </span>
+        </button>
+      </mat-expansion-panel>
+    </ng-template>
+  </mat-sidenav>
+
+  <mat-sidenav-content 
+  [ngStyle]="{ 'margin-left': !isMobile ? sidenavOpened ? '250px' : '70px' : '250px' }"
+
+  >
+    <div
+    [ngStyle]="{ 'margin-left': !isMobile ? sidenavOpened ? '17px' : '64px' : '' }"
+    class="content mat-elevation-z8"
+    >
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  -->
+
+<mat-toolbar class="mat-elevation-z10">
+  <div class="menu-titles">
+    <button mat-icon-button (click)="toggleSidenav()">
+      <!-- <button mat-icon-button > -->
+
+      <mat-icon *ngIf="!sidenavOpened">menu</mat-icon>
+      <mat-icon *ngIf="sidenavOpened">close</mat-icon>
+    </button>
+    HOTEL
+  </div>
+  <div class="menu-options">
+    <button (click)="logout()" mat-button class="menu-button">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav="matSidenav"
+    [opened]="!isMobile ? true : sidenavOpened"
+    class="mat-elevation-z10"
+    [class.opened]="!isMobile ? sidenavOpened : ''"
+    [class.closed]="!isMobile ? !sidenavOpened : ''"
+  >
+    <mat-nav-list class="side-navbar">
+      <ng-container *ngFor="let menu of menus; index as i">
+        <ng-container
+          [ngTemplateOutlet]="menu.data?.children ? childMenu : parentMenu"
+          [ngTemplateOutletContext]="{ menu: menu }"
+        ></ng-container>
+      </ng-container>
+    </mat-nav-list>
+    <ng-template #parentMenu let-menu="menu">
+      <button
+        mat-button
+        class="menu-button"
+        [disabled]="
+          current_path.includes('/page/' + menu.path + '/') ||
+          current_path === '/page/' + menu.path
+        "
+        [routerLink]="[menu.path]"
+      >
+        <mat-icon>{{ menu.data?.icon }} </mat-icon
+        ><span>{{ menu.data?.title }} </span>
+      </button>
+    </ng-template>
+    <ng-template #childMenu let-menu="menu">
+      <mat-expansion-panel
+        [class.mat-elevation-z0]="true"
+        [expanded]="current_path.includes(menu.path)"
+        (opened)="closeOtherPanels(panel)"
+        #panel
+      >
+        <mat-expansion-panel-header class="specific-class">
+          <button mat-button class="menu-button">
+            <mat-icon>{{ menu.data?.icon }}</mat-icon>
+            <span>{{ menu.data?.title }}</span>
+          </button>
+        </mat-expansion-panel-header>
+        <button
+          *ngFor="let submenu of menu.data.children"
+          mat-button
+          [disabled]="current_path === submenu.link"
+          class="menu-button"
+          [routerLink]="[submenu.link]"
+        >
+          <mat-icon>{{ submenu.icon }}</mat-icon>
+          <span [ngClass]="{ 'hide-title': !sidenavOpened }">
+            {{ submenu.title }}
+          </span>
+        </button>
+      </mat-expansion-panel>
+    </ng-template>
+  </mat-sidenav>
+  <mat-sidenav-content 
+  [ngStyle]="{ 'margin-left': !isMobile ? sidenavOpened ? '250px' : '70px' : '250px' }"
+
+  >    <!-- <div
+      [ngStyle]="{ 'margin-left': sidenav.mode === 'over' ? '16px' : '32px' }"
+      class="content mat-elevation-z8"
+    >
+      <router-outlet></router-outlet>
+    </div> -->
+    <div
+    [ngStyle]="{ 'margin-left': !isMobile ? sidenavOpened ? '17px' : '64px' : '' }"
+    class="content"
+    >
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,27 @@
+th.mat-header-cell {
+    border: 1px solid #e0e0e0;
+    padding: 0 5px;
+}
+
+td.mat-cell, th.mat-header-cell {
+    text-align: center;
+    white-space: nowrap;
+}
+
+td.mat-cell {
+    padding: 0 10px;
+}
+
+th.mat-header-cell:first-child, td.mat-cell:first-child {
+    text-align: left;
+    padding-left: 25px;
+}
+
+th.mat-header-cell:last-child, td.mat-cell:last-child {
+    text-align: center;
+    padding-right: 25px;
+}
+
+.mat-table {
+    display: table;
+}

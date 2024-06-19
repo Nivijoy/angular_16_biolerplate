@@ -1,0 +1,41 @@
+<!-- <button mat-mini-fab color="primary" (click)="fileField.click()">
+  <mat-icon>attach_file</mat-icon>
+  <input
+    type="file"
+    name="avatars"
+    #fileField
+    [accept]="accept"
+    (change)="readFile($any($event).target.files)"
+    hidden
+    [multiple]="multiple"
+    />
+</button>
+ -->
+
+ <mat-card>
+  
+
+<div class="col-24" class="file-drop">
+  <mat-toolbar>
+  <!-- <mat-toolbar> -->
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip *ngFor="let file of selectedFiles; let i = index">
+        {{ file.name }}
+        <mat-icon (click)="removeFile(i)" matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+    <mat-label *ngIf="selectedFiles.length; else newFile">Chosen {{ selectedFiles.length }} file(s) &nbsp;&nbsp;</mat-label>
+    <ng-template #newFile>
+      <mat-label>Choose file&nbsp;&nbsp;</mat-label>
+    </ng-template>
+    <button type="button" style="width:40px;margin:64px" mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileField.click();fileField.value='';metaData=[];">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <input type="file" name="avatars" #fileField [accept]="accept" (change)="readFile($any($event).target.files)" hidden
+  [multiple]="multiple" />
+</div>
+
+</mat-card>

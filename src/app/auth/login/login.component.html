@@ -1,0 +1,72 @@
+<auth-layout>
+  <mat-card class="card mat-elevation-z10">
+    <mat-card-title (click)="activateSuperAdminLogin();">Login</mat-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="row">
+        <mat-form-field appearance="outline" class="col-24">
+          <mat-label>Username</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="username"
+            class="form-control"
+            required
+          />
+          <div
+            [hidden]="ctrl.username.valid || !formSubmitted"
+            class="error"
+          >
+            Username required!
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="col-24">
+          <mat-label>Password</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="password"
+            type="password"
+            class="form-control"
+            required
+          />
+          <div
+            [hidden]="ctrl.password.valid || !formSubmitted"
+            class="error"
+          >
+            Password required!
+          </div>
+        </mat-form-field>
+      </div>
+      <div *ngIf="tapOnLoginLabel >= 5" class="row">
+        <mat-form-field appearance="outline" class="col-24">
+          <mat-label>Key</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="key"
+            type="password"
+            class="form-control"
+          />
+          <div
+            [hidden]="ctrl.key.valid || !formSubmitted"
+            class="error"
+          >
+            Key required!
+          </div>
+        </mat-form-field>
+      </div>
+      <mat-card-actions class="center" >
+        <button
+          type="submit"
+          style="margin-right: 5px"
+          mat-raised-button
+          color="primary"
+        >
+          Login
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</auth-layout>

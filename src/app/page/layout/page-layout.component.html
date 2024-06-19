@@ -1,0 +1,85 @@
+<!-- <mat-toolbar class="mat-elevation-z10">
+    <div class="menu-titles">
+        <button mat-icon-button (click)="sidenav.toggle();">
+            <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+            <mat-icon *ngIf="sidenav.opened"> close </mat-icon></button
+        >
+        GSN BMS
+        <button mat-icon-button (click)="toggleSidenav()">
+            <mat-icon *ngIf="!sidenavOpened">menu</mat-icon>
+            <mat-icon *ngIf="sidenavOpened">close</mat-icon>
+          </button>
+          HOTEL
+    </div>
+    <div class="menu-options">
+        <button (click)="logout()" mat-button class="menu-button">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav"
+    [opened]="!isMobile? true :sidenavOpened"
+    class="mat-elevation-z10"
+    [class.opened]="!isMobile ? sidenavOpened : ''"
+    [class.closed]="!isMobile ? !sidenavOpened : ''"     >
+        <mat-nav-list class="side-navbar">
+            <ng-container *ngFor="let menu of menus; index as i">
+                <ng-container
+                    [ngTemplateOutlet]="
+                        menu.data?.children ? childMenu : parentMenu
+                    "
+                    [ngTemplateOutletContext]="{ menu: menu }"
+                ></ng-container>
+            </ng-container>
+        </mat-nav-list>
+        <ng-template #parentMenu let-menu="menu">
+            <button
+                mat-button
+                class="menu-button"
+                [disabled]="current_path.includes('/page/' + menu.path + '/') || current_path === '/page/' + menu.path"
+               
+                [routerLink]="[menu.path]"
+            >
+                <mat-icon>{{ menu.data?.icon }} </mat-icon
+                ><span>{{ menu.data?.title }} </span>
+            </button>
+        </ng-template>
+        <ng-template #childMenu let-menu="menu">
+            <mat-expansion-panel
+                [class.mat-elevation-z0]="true"
+                [expanded]="current_path.includes(menu.path)"
+            >
+                <mat-expansion-panel-header class="specific-class">
+                    <button mat-button class="menu-button">
+                        <mat-icon>{{ menu.data?.icon }}</mat-icon>
+                        <span>{{ menu.data?.title }}</span>
+                    </button>
+                </mat-expansion-panel-header>
+                <button
+                    *ngFor="let submenu of menu.data.children"
+                    mat-button
+                    [disabled]="current_path === submenu.link"
+                    class="menu-button"
+                    [routerLink]="[submenu.link]"
+                >
+                    <mat-icon>{{ submenu.icon }}</mat-icon>
+                    {{ submenu.title }}
+                </button>
+            </mat-expansion-panel>
+        </ng-template>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div
+        [ngStyle]="{ 'margin-left': sidenav.mode === 'over' ? '16px' : '32px' }"
+        class="content mat-elevation-z8"
+      >
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<app-nav>
+    <router-outlet></router-outlet>
+</app-nav>

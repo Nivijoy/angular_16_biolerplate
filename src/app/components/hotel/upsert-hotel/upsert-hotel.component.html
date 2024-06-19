@@ -1,0 +1,128 @@
+<mat-card-title class="row no-wrap mat-card-title">
+  <div class="col-16 primary-color">Add Hotel</div>
+</mat-card-title>
+<form>
+  <mat-horizontal-stepper
+    [linear]="true"
+    #stepper
+    labelPosition="bottom"
+    class="primary-color"
+  >
+    <ng-template matStepperIcon="home">
+      <mat-icon>home</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="profile">
+      <mat-icon>person</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="pack">
+      <mat-icon>all_inclusive</mat-icon>
+    </ng-template>
+    <mat-step label="Basic" state="home">
+      <mat-card class="col-24 mat-elevation-z10">
+        <div class="subtitle-wrapper">
+          <div class="line"></div>
+          <mat-card-subtitle
+            class="primary-color subtitle"
+            style="margin-top: 1em"
+            ><b>Basic Info</b></mat-card-subtitle
+          >
+          <div class="line"></div>
+        </div>
+        <!-- <mat-card-subtitle class="primary-color subtitle"
+        ><b>Basic Info</b></mat-card-subtitle
+      > -->
+        <!-- <mat-divider [inset]="true"></mat-divider> -->
+        <div class="row-center">
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Business Name:</mat-label>
+            <input matInput placeholder="Business Name" type="text" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Contact Person Name:</mat-label>
+            <input matInput placeholder="Contact Person Name" type="text" />
+          </mat-form-field>
+        </div>
+
+        <div class="row-center">
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Mobile Number:</mat-label>
+            <input matInput placeholder="Mobile Number" type="text" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Landline Number:</mat-label>
+            <input matInput placeholder="Landline Number" type="text" />
+          </mat-form-field>
+        </div>
+        <div class="row-center">
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Email ID:</mat-label>
+            <input matInput placeholder="Email ID" type="text" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Alternate Email ID:</mat-label>
+            <input matInput placeholder="Alternate Email ID:" type="text" />
+          </mat-form-field>
+        </div>
+        <div class="subtitle-wrapper">
+          <div class="line"></div>
+          <mat-card-subtitle
+            class="primary-color subtitle"
+            style="margin-top: 1em"
+            ><b>Login Credential</b></mat-card-subtitle
+          >
+          <div class="line"></div>
+        </div>
+        <!-- <mat-card-subtitle class="primary-color subtitle" style="margin-top: 1em"
+        ><b>Login Credential</b></mat-card-subtitle
+      > -->
+        <!-- <mat-divider [inset]="true"></mat-divider> -->
+        <div class="row-center">
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" type="text" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-12">
+            <mat-label>Password:</mat-label>
+            <input matInput placeholder="Password" type="text" />
+          </mat-form-field>
+        </div>
+        <div class="subtitle-wrapper">
+          <div class="line"></div>
+          <mat-card-subtitle
+            class="primary-color subtitle"
+            style="margin-top: 1em"
+            ><b>Accommodation Type</b></mat-card-subtitle
+          >
+          <div class="line"></div>
+        </div>
+        <!-- <mat-card-subtitle class="primary-color subtitle" style="margin-top: 1em"
+        ><b>Accomodation Type</b></mat-card-subtitle
+      > -->
+        <!-- <mat-divider [inset]="true"></mat-divider> -->
+        <div class="row-center row">
+          <div *ngFor="let accomodation of accomodation_setting">
+            <!-- <span class="col-4 checkbox-label">{{ accomodation.label }} </span>
+
+            <div class="col-4 end">
+              <mat-slide-toggle color="primary"> </mat-slide-toggle>
+            </div> -->
+            <mat-checkbox class="col-4 checkbox-label">
+              {{accomodation.label}}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="end">
+          <button color="primary" mat-button mat-raised-button matStepperNext>
+            Next
+          </button>
+        </div>
+      </mat-card>
+    </mat-step>
+
+    <mat-step label="Property Info" state="property"> </mat-step>
+
+    <mat-step label="Additional Info" state="additional"> </mat-step>
+
+    <mat-step label="Settings" state="setting"> </mat-step>
+  </mat-horizontal-stepper>
+</form>

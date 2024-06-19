@@ -1,0 +1,16 @@
+<mat-option class="option" disabled>
+    <div class="search-container">
+        <mat-checkbox [(ngModel)]="selectAll" (change)="toggle($event)" [isVisible]="multiple" [color]="color"></mat-checkbox>
+        <input
+          class="option-input"
+          autocomplete="off"
+          (click)="preventEvent($event)"
+          #autoCompleteSelect
+          (keyup)="keyUp($event)"
+          (keydown.space)="multiple && keyDownSpace($event)"
+          matInput
+          [placeholder]="placeholder"
+          [(ngModel)]="searchTxt"
+        />
+    </div>
+</mat-option>
